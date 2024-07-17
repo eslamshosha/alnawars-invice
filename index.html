@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <title>النورس</title>
+  </head>
+  <style>
+    @font-face {
+      font-family: "Cairo";
+      src: url("../webfonts/cairo/Cairo-ExtraLight.woff2") format("woff2"),
+        url("../webfonts/cairo/Cairo-ExtraLight.woff") format("woff"),
+        url("../webfonts/cairo/Cairo-ExtraLight.ttf") format("truetype");
+      font-weight: 200;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Cairo";
+      src: url("../webfonts/cairo/Cairo-Light.woff2") format("woff2"),
+        url("../webfonts/cairo/Cairo-Light.woff") format("woff"),
+        url("../webfonts/cairo/Cairo-Light.ttf") format("truetype");
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Cairo";
+      src: url("../webfonts/cairo/Cairo-Regular.woff2") format("woff2"),
+        url("../webfonts/cairo/Cairo-Regular.woff") format("woff"),
+        url("../webfonts/cairo/Cairo-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Cairo";
+      src: url("../webfonts/cairo/Cairo-SemiBold.woff2") format("woff2"),
+        url("../webfonts/cairo/Cairo-SemiBold.woff") format("woff"),
+        url("../webfonts/cairo/Cairo-SemiBold.ttf") format("truetype");
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Cairo";
+      src: url("../webfonts/cairo/Cairo-Bold.woff2") format("woff2"),
+        url("../webfonts/cairo/Cairo-Bold.woff") format("woff"),
+        url("../webfonts/cairo/Cairo-Bold.ttf") format("truetype");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Cairo";
+      src: url("../webfonts/cairo/Cairo-Black.woff2") format("woff2"),
+        url("../webfonts/cairo/Cairo-Black.woff") format("woff"),
+        url("../webfonts/cairo/Cairo-Black.ttf") format("truetype");
+      font-weight: 900;
+      font-style: normal;
+    }
+    body {
+      font-family: "Cairo", sans-serif;
+      margin: 0;
+      background-color: #fff;
+      color: #000;
+    }
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    .header-invoice {
+      padding: 30px 40px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #e02d28;
+      margin-bottom: 10px;
+    }
+    .logo {
+      width: 100px;
+      margin: 0;
+    }
+    .logo img {
+      width: 100px;
+    }
+    .header-info {
+      color: #292b82;
+      text-align: center;
+    }
+    .header-info h2 {
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 30px;
+      margin: 0 0 5px;
+      text-transform: uppercase;
+    }
+    .header-info span {
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 15px;
+      display: inline-block;
+      margin-bottom: 5px;
+    }
+    .header-info div {
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 15px;
+    }
+    .table-info-cont {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0 10px;
+      color: #000;
+    }
+    .invoice-info h3 {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 20px;
+      margin: 0;
+      color: #000;
+    }
+    .invoice-signature {
+      width: 40%;
+    }
+    .invoice-signature h3 {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 18px;
+      color: #000;
+      margin: 0;
+    }
+    .invoice-info .invoice-code {
+      font-weight: 500;
+      font-size: 18px;
+    }
+    .invoice-data {
+      font-weight: 700;
+      font-size: 16px;
+      color: #000;
+    }
+    .signature {
+      /* margin-top: 34px; */
+    }
+    .signature h5 {
+      font-weight: 700;
+      font-size: 16px;
+      margin: 0;
+      margin-bottom: 20px;
+    }
+    .signature span {
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .invoice-subject {
+      text-align: center;
+      margin-top: 20px;
+      color: #000;
+    }
+    .invoice-subject h3 {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 9px;
+      margin: 0 auto;
+      width: max-content;
+      position: relative;
+    }
+    .invoice-subject h3::after {
+      content: "";
+      display: inline-block;
+      width: 100%;
+      height: 2px;
+      background: #000;
+      bottom: 2px;
+    }
+    .invoice-subject p {
+      font-weight: 700;
+      font-size: 16px;
+      text-align: start;
+      margin: 5px 0;
+      padding-inline-start: 20px;
+    }
+    .notes {
+      padding: 0 30px;
+      margin-top: 20px;
+      color: #000;
+    }
+    .notes h3 {
+      font-weight: 700;
+      font-size: 16px;
+      margin: 0;
+    }
+    .notes ul {
+      margin: 0;
+      padding: 0;
+    }
+    .notes li {
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .notes p {
+      text-align: center;
+      margin: 10px 0;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .footer-signature {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 30px;
+      margin-bottom: 100px;
+    }
+    .footer-signature h5 {
+      margin: 0;
+      text-align: start;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 16px;
+      padding: 0 15px 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #000;
+    }
+    .table_group {
+      padding: 0 60px;
+      overflow: hidden;
+    }
+
+    @media print {
+      .table_group {
+        padding: 0 30px;
+        overflow: hidden;
+      }
+    }
+    .price-box table,
+    .price-table table {
+      border: 1px solid #000;
+      table-layout: fixed;
+      border-collapse: collapse;
+    }
+    .price-box td,
+    .price-box th {
+      font-weight: 600;
+      font-size: 16px;
+      color: #000;
+      border-bottom: 1px solid #000;
+      border-collapse: collapse;
+      border-inline-end: 1px solid #000;
+      padding: 5px 15px;
+    }
+    .table-info-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .price-table table {
+      width: 100%;
+      border: 1px solid #000;
+      table-layout: fixed;
+      border-collapse: collapse;
+    }
+    .price-table td,
+    .price-table th {
+      border-bottom: 1px solid #000;
+      border-collapse: collapse;
+      border-inline-end: 1px solid #000;
+      padding: 5px 10px;
+      text-align: start;
+      color: #000;
+    }
+    .price-table th {
+      font-weight: 700;
+      font-size: 14px;
+      background-color: #bfbfbf;
+    }
+    .price-table td {
+      font-weight: 400;
+      font-size: 12px;
+    }
+    .price-table td.bold {
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .price-table tfoot td {
+      font-weight: 700;
+      font-size: 14px;
+      background-color: #bfbfbf;
+    }
+    .invoice-footer {
+    }
+    .page-info {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 30px;
+      gap: 20px;
+      font-weight: 500;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+    }
+    .footer-info {
+      border-top: 1px solid #e02d28;
+      /* padding-top: 5px; */
+      padding: 0 10px;
+    }
+    .footer-info p {
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 18px;
+      color: #292b82;
+      text-align: center;
+      margin: 0;
+    }
+    .footer-marks {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-marks figure {
+      margin: 0;
+      width: 75px;
+      height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .footer-marks figure::after {
+      content: "";
+      height: 60px;
+      width: 2px;
+      display: inline-block;
+      background-color: #bebebe;
+      position: absolute;
+      inset-inline-end: -5px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .footer-marks figure:last-of-type::after {
+      display: none;
+    }
+    .footer-marks img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <div class="header-invoice">
+        <div class="header-info">
+          <h2>شركة النورس</h2>
+          <span>للأكياس البلاستيكية</span>
+          <div>تلفون : 24758888 - فاكس : 24758800</div>
+          <span>الكويت</span>
+        </div>
+        <figure class="logo">
+          <img src="logo.png" alt="logo" />
+        </figure>
+        <div class="header-info">
+          <h2>ALNAWRAS</h2>
+          <span>.PLASTIC BAG CO</span>
+          <div>teL : 24758888 - FAX : 24758800</div>
+          <span>KUWAIT</span>
+        </div>
+      </div>
+      <div class="table-info-head">
+        <div class="invoice-info">
+          <h3>الكويت في <span>22/2/2024</span></h3>
+        </div>
+        <div class="price-box">
+          <table>
+            <thead>
+              <tr>
+                <th>عرض سعر رقم</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>WR 00020</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="table-info-cont">
+        <div class="invoice-info">
+          <div class="invoice-data">
+            <div>
+              <span>حضرات السادة /</span>
+              <span>احمد ناصر عبدالله صالح</span>
+            </div>
+            <div>
+              <span>اسم العميل /</span>
+              <span>محمد صلاح</span>
+            </div>
+            <div>
+              <span>الــــرقم المدني /</span>
+              <span>290042101289</span>
+            </div>
+            <div>
+              <span>رقـــــم التليفون /</span>
+              <span>103340</span>
+            </div>
+          </div>
+        </div>
+        <div class="invoice-signature">
+          <div class="signature">
+            <h5>المحترمين</h5>
+            <span>المحترم</span>
+          </div>
+        </div>
+      </div>
+      <div class="invoice-subject">
+        <h3>الموضوع/ <span> عرض سعر بضاعة</span></h3>
+        <p>
+          بلاشارة الى الموضوع أعلاه, نقدم لسيادتكم بعرض سعر وذلك على النحو
+          التالي :-
+        </p>
+        <div class="price-table">
+          <table>
+            <thead>
+              <tr>
+                <th colspan="1">م</th>
+                <th colspan="2">رقم الصنف</th>
+                <th colspan="4">إسم الصنف</th>
+                <th colspan="2">وحــدة</th>
+                <th colspan="2">كمية</th>
+                <th colspan="2">سعـر الوحدة</th>
+                <th colspan="3">القيمــــة</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="1">1</td>
+                <td colspan="2">31100001</td>
+                <td colspan="4">مواد بلاستيكية معاد تدويرها صديقة للبيئة</td>
+                <td colspan="2">كيلو</td>
+                <td colspan="2">26.563</td>
+                <td colspan="2">0.320</td>
+                <td colspan="3" class="bold">8,500.000</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="13">اجمالى</td>
+                <td colspan="3" class="bold">8,500.000</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+      <div class="notes">
+        <h3>ملاحظة:</h3>
+        <ul>
+          <li>صلاحية عرض السعر لفترة 15 يوم من تاريخه.</li>
+          <li>
+            تم اختيار البضاعة (جاهزة) تم معاينتها معاينة تامة نافية للجهالة من
+            كل عيب ومن كل تلف واخلي بنك وربة من أي مسئولية حالية أو مستقبلية
+            نصادق على صحة البيانات الواردة في عرض السعر ونلتزم بتسليمها حسب
+            المواصفات المرفقة.
+          </li>
+        </ul>
+        <p>وتفضلوا بقبول فائق الاحترام ،</p>
+      </div>
+      <div class="footer-signature">
+        <div class="signature-box">
+          <h5>توقيع العميل</h5>
+        </div>
+        <div class="signature-box">
+          <h5>مدير القسم التجاري</h5>
+        </div>
+      </div>
+      <div class="invoice-footer">
+        <div class="page-info">
+          <span> 2024-04-14</span>
+          <span> 08:17:22</span>
+          <span> صفحة 1</span>
+          <span> 205S</span>
+        </div>
+        <div class="footer">
+          <div class="footer-info">
+            <p>
+              صبحان - المدخل الشمالي قطعة ١١ - قسيمة ٩٥ خلف المطافي - الرمز
+              البريدي: ٤٦٠١١ الكويت
+            </p>
+            <p>
+              Sabhan North Enrance - Block 11, Building 95. Behind Fire Station,
+              Area Code 46011 Kuwait
+            </p>
+            <p>E-mail: alnawras07@yahoo.com</p>
+          </div>
+          <div class="footer-marks">
+            <figure><img src="qr.PNG" alt="mark" /></figure>
+            <figure><img src="mark.PNG" alt="mark" /></figure>
+            <figure><img src="mark.PNG" alt="mark" /></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
